@@ -22,6 +22,13 @@ pokemons = [
 ]
 
 
+def obtener_siguiente_id():
+    # Busca el id mas alto actual y suma 1.
+    if len(pokemons) == 0:
+        return 1
+    return max(pokemon["id"] for pokemon in pokemons) + 1
+
+
 def buscar_pokemon(pokemon_id):
     # Recorre la lista y devuelve el Pokemon que tenga ese id.
     for pokemon in pokemons:
@@ -63,7 +70,7 @@ def crear_pokemon():
 
     # Crea un nuevo Pokemon usando los datos recibidos.
     nuevo_pokemon = {
-        "id": len(pokemons) + 1,
+        "id": obtener_siguiente_id(),
         "nombre": datos.get("nombre", ""),
         "imagen": datos.get("imagen", ""),
         "caracteristicas": {

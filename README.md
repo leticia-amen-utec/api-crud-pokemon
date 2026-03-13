@@ -1,13 +1,13 @@
-# Mini Proyecto en Python: API CRUD de Pokemon
+# Mini Proyecto en Python: API CRUD de Pokémon
 
-API CRUD simple hecha con Flask para gestionar Pokemon en memoria.
+API CRUD simple hecha con Flask para gestionar Pokémon en memoria.
 
 ## Requisitos
 
 - Python 3
 - Flask
 
-## Instalacion
+## Instalación
 
 ```bash
 pip install -r requirements.txt
@@ -19,7 +19,7 @@ Si prefieres instalar Flask directamente:
 pip install flask
 ```
 
-## Como correr la API
+## Cómo correr la API
 
 ```bash
 python app.py
@@ -33,19 +33,19 @@ http://127.0.0.1:5000
 
 ## Rutas
 
-### Obtener todos los Pokemon
+### Obtener todos los Pokémon
 
 ```http
 GET /pokemons
 ```
 
-### Obtener un Pokemon por ID
+### Obtener un Pokémon por ID
 
 ```http
 GET /pokemons/1
 ```
 
-### Crear un Pokemon
+### Crear un Pokémon
 
 ```http
 POST /pokemons
@@ -66,22 +66,110 @@ Ejemplo de body:
   },
   "habilidades": ["Ascuas", "Lanzallamas"],
   "tipo": "Fuego",
-  "habitat": "Montñas"
+  "habitat": "Montañas"
 }
 ```
 
-### Actualizar un Pokemon
+### Actualizar un Pokémon
 
 ```http
 PUT /pokemons/1
 Content-Type: application/json
 ```
 
-### Eliminar un Pokemon
+### Eliminar un Pokémon
 
 ```http
 DELETE /pokemons/1
 ```
+
+## Cómo probar la API
+
+1. Instala las dependencias:
+
+```bash
+pip install -r requirements.txt
+```
+
+2. Ejecuta la aplicación:
+
+```bash
+python app.py
+```
+
+3. Abre otra terminal y prueba las rutas.
+
+### Probar en el navegador
+
+Puedes abrir estas rutas en el navegador:
+
+- `http://127.0.0.1:5000/`
+- `http://127.0.0.1:5000/pokemons`
+- `http://127.0.0.1:5000/pokemons/1`
+
+### Probar con Postman
+
+1. Abre Postman.
+2. Crea una nueva request.
+3. Usa la URL base:
+
+```text
+http://127.0.0.1:5000
+```
+
+4. Prueba estas rutas:
+
+- `GET /pokemons`
+- `GET /pokemons/1`
+- `POST /pokemons`
+- `PUT /pokemons/1`
+- `DELETE /pokemons/1`
+
+### Crear un Pokémon en Postman
+
+- Método: `POST`
+- URL: `http://127.0.0.1:5000/pokemons`
+- En `Body`, elegir `raw`
+- Seleccionar `JSON`
+
+Body de ejemplo:
+
+```json
+{
+  "nombre": "Bulbasaur",
+  "imagen": "https://ejemplo.com/bulbasaur.png",
+  "caracteristicas": {
+    "peso": 6.9,
+    "altura": 0.7,
+    "fuerza": 49,
+    "edad": 3
+  },
+  "habilidades": ["Latigo Cepa", "Placaje"],
+  "tipo": "Planta",
+  "habitat": "Praderas"
+}
+```
+
+### Actualizar un Pokémon en Postman
+
+- Método: `PUT`
+- URL: `http://127.0.0.1:5000/pokemons/1`
+- En `Body`, elegir `raw`
+- Seleccionar `JSON`
+
+Body de ejemplo:
+
+```json
+{
+  "nombre": "Ivysaur",
+  "tipo": "Planta/Veneno"
+}
+```
+
+### Eliminar un Pokémon en Postman
+
+- Método: `DELETE`
+- URL: `http://127.0.0.1:5000/pokemons/1`
 
 ## Ejemplos con curl
 
