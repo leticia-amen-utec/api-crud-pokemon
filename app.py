@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request
 
 
 app = Flask(__name__)
+app.json.sort_keys = False
 
 # Lista en memoria donde guardamos los Pokemon mientras la app esta corriendo.
 pokemons = [
